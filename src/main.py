@@ -7,11 +7,11 @@ import os
 
 def main():
     shared_logger.info("Initializing Book Q&A System...\n")
-    
-    # Load environment variables from .env
     load_dotenv()
 
-    if os.getenv("CREATE_INDEX") == "TRUE":
+    needBuild = input("Do you want to build the index? [y/n]: ")
+
+    if needBuild.lower() == 'y':
         # Step 1: Process book
         process_book()
         # Step 2: Create Vector Store
